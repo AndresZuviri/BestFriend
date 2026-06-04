@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestfriend — Peluches Ecológicos que Dan Vida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde: #4CAF50;
+            --verde-oscuro: #2E7D32;
+            --verde-claro: #C8E6C9;
+            --amarillo: #FFD54F;
+            --naranja: #FF8A65;
+            --rosa: #F48FB1;
+            --morado: #CE93D8;
+            --azul: #81D4FA;
+            --crema: #FFF8E1;
+            --cafe: #8D6E63;
+            --blanco: #ffffff;
+            --gris: #616161;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--crema);
+            color: var(--gris);
+            line-height: 1.7;
+        }
+        h1, h2, h3, h4 { font-family: 'Fredoka', sans-serif; }
+
+        /* Navegación */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            padding: 12px 0;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+        }
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--verde-oscuro);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span { color: var(--naranja); }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gris);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover { color: var(--verde); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 3px; background: var(--amarillo);
+            border-radius: 2px; transition: width 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--verde-claro) 0%, var(--crema) 50%, var(--amarillo) 100%);
+            padding: 100px 24px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '🌱'; position: absolute; font-size: 3rem;
+            top: 15%; left: 10%; opacity: 0.3; animation: float 4s ease-in-out infinite;
+        }
+        .hero::after {
+            content: '🌿'; position: absolute; font-size: 2.5rem;
+            bottom: 20%; right: 12%; opacity: 0.3; animation: float 5s ease-in-out infinite reverse;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-size: 3.2rem;
+            color: var(--verde-oscuro);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .hero-text h1 span {
+            color: var(--naranja);
+            display: block;
+        }
+        .hero-text p {
+            font-size: 1.15rem;
+            margin-bottom: 28px;
+            color: var(--cafe);
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--verde);
+            color: var(--blanco);
+            box-shadow: 0 6px 20px rgba(76,175,80,0.35);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(76,175,80,0.45);
+            background: var(--verde-oscuro);
+        }
+        .btn-secondary {
+            background: var(--blanco);
+            color: var(--verde-oscuro);
+            margin-left: 12px;
+            border: 2px solid var(--verde-claro);
+        }
+        .btn-secondary:hover {
+            background: var(--verde-claro);
+            transform: translateY(-3px);
+        }
+        .hero-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            position: relative;
+        }
+        .hero-img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            transition: transform 0.4s;
+            object-fit: cover;
+            aspect-ratio: 1;
+        }
+        .hero-img:hover { transform: scale(1.05) rotate(-2deg); }
+        .hero-img:nth-child(2) { transform: translateY(20px); }
+        .hero-img:nth-child(2):hover { transform: scale(1.05) rotate(2deg) translateY(20px); }
+        .hero-img:nth-child(3) { transform: translateY(-10px); }
+        .hero-img:nth-child(3):hover { transform: scale(1.05) rotate(2deg) translateY(-10px); }
+
+        /* Secciones generales */
+        section { padding: 80px 24px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .section-header h2 {
+            font-size: 2.4rem;
+            color: var(--verde-oscuro);
+            margin-bottom: 12px;
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--cafe);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Nosotros */
+        .nosotros { background: var(--blanco); }
+        .nosotros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .feature-card {
+            background: var(--crema);
+            border-radius: 24px;
+            padding: 36px 28px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--verde-claro);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--verde-oscuro);
+            margin-bottom: 10px;
+        }
+        .feature-card p { font-size: 0.95rem; }
+
+        /* Catálogo */
+        .catalogo { background: linear-gradient(180deg, var(--crema) 0%, var(--blanco) 100%); }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+        .product-card {
+            background: var(--blanco);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+        }
+        .product-badge {
+            position: absolute;
+            top: 16px; right: 16px;
+            background: var(--naranja);
+            color: var(--blanco);
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 6px 14px;
+            border-radius: 50px;
+            z-index: 2;
+        }
+        .product-img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+        }
+        .product-info { padding: 24px; }
+        .product-info h3 {
+            font-size: 1.4rem;
+            color: var(--verde-oscuro);
+            margin-bottom: 6px;
+        }
+        .product-info .desc {
+            font-size: 0.92rem;
+            color: var(--cafe);
+            margin-bottom: 14px;
+            min-height: 48px;
+        }
+        .product-price {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.6rem;
+            color: var(--verde);
+            font-weight: 700;
+        }
+        .product-price .old {
+            font-size: 1rem;
+            color: #bbb;
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+        .product-seed {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            font-size: 0.88rem;
+            color: var(--verde-oscuro);
+            background: var(--verde-claro);
+            padding: 8px 14px;
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        /* Historia */
+        .historia { background: var(--verde-oscuro); color: var(--blanco); }
+        .historia .section-header h2 { color: var(--amarillo); }
+        .historia .section-header p { color: var(--verde-claro); }
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
+        }
+        .story-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 32px;
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.12);
+            transition: all 0.3s;
+        }
+        .story-card:hover {
+            background: rgba(255,255,255,0.14);
+            transform: translateY(-5px);
+        }
+        .story-card h3 {
+            font-size: 1.3rem;
+            color: var(--amarillo);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .story-card p { font-size: 0.95rem; color: #e0f2e9; line-height: 1.7; }
+
+        /* Beneficios */
+        .beneficios { background: var(--blanco); }
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .benefit-item {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            padding: 24px;
+            background: var(--crema);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        .benefit-item:hover { transform: translateX(6px); }
+        .benefit-icon {
+            font-size: 2.4rem;
+            flex-shrink: 0;
+        }
+        .benefit-text h4 {
+            font-size: 1.15rem;
+            color: var(--verde-oscuro);
+            margin-bottom: 6px;
+        }
+        .benefit-text p { font-size: 0.92rem; }
+
+        /* Equipo */
+        .equipo { background: linear-gradient(135deg, var(--rosa) 0%, var(--morado) 100%); }
+        .equipo .section-header h2 { color: var(--blanco); }
+        .equipo .section-header p { color: rgba(255,255,255,0.9); }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .team-member {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 24px 16px;
+            color: var(--blanco);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+        .team-member h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .team-member span {
+            font-size: 0.82rem;
+            opacity: 0.85;
+        }
+
+        /* Contacto / Footer */
+        .contacto {
+            background: var(--verde-oscuro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 60px 24px;
+        }
+        .contacto h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: var(--amarillo);
+        }
+        .contacto p { font-size: 1.05rem; margin-bottom: 24px; color: #c8e6c9; }
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blanco);
+            color: var(--verde-oscuro);
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .footer-copy {
+            margin-top: 36px;
+            font-size: 0.88rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-images { max-width: 500px; margin: 0 auto; }
+            .nav-links { gap: 16px; }
+            .hero-text h1 { font-size: 2.4rem; }
+            .btn-secondary { margin-left: 0; margin-top: 12px; }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .hero-text h1 { font-size: 2rem; }
+            section { padding: 56px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🌿 Moto Tank <span>Bestfriend</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Peluches Ecológicos <span>que Dan Vida</span></h1>
+                <p>Cada peluche está hecho con materiales reciclados y trae una semilla para plantar. Conoce a Chupirul, Berry, Banana y Tino: cuatro amigos de tela que cuidan el planeta y te hacen compañía.</p>
+                <div>
+                    <a href="#catalogo" class="btn btn-primary">Ver Catálogo 🛒</a>
+                    <a href="#nosotros" class="btn btn-secondary">Conócenos 💚</a>
+                </div>
+            </div>
+            <div class="hero-images">
+                <img src="https://cdn.oreateai.com/aiimage/upload/70bfdc148081a778201ff728/f251e7f20e883315c16d49bdf31aa324.jpg" alt="Chupirul" class="hero-img">
+                <img src="https://cdn.oreateai.com/aiimage/upload/70bfdc148081a778201ff728/50dc2c8088e816507b0b15f4e6150f9d.jpg" alt="Berry" class="hero-img">
+                <img src="https://cdn.oreateai.com/aiimage/upload/70bfdc148081a778201ff728/4675d31399ee03702f0ebf640defcc3e.jpg" alt="Banana" class="hero-img">
+                <img src="https://cdn.oreateai.com/aiimage/upload/70bfdc148081a778201ff728/6e1346f86efd0e0314b16077e9d92a6f.png" alt="Tino" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section class="nosotros" id="nosotros">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Qué nos hace únicos?</h2>
+                <p>En Moto Tank Bestfriend no solo vendemos peluches: vendemos dos compañeros que brindan vida al planeta y a uno mismo.</p>
+            </div>
+            <div class="nosotros-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">♻️</div>
+                    <h3>100% Reciclado</h3>
+                    <p>Fabricados con telas recicladas de mochilas viejas, ropa y peluches recolectados. Cada pieza es única y reduce la contaminación.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Semilla Incluida</h3>
+                    <p>Cada peluche trae una semilla para plantar un árbol o una planta pequeña. Convierte tu compañero en vida nueva para el planeta.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Historia Única</h3>
+                    <p>Cada peluche tiene su propia historia y personalidad. Un pequeño libro acompaña cada uno para que te identifiques con tu mejor amigo.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Hecho a Mano</h3>
+                    <p>Diseñados y cosidos con amor por el equipo del grupo 3°D. Piezas originales con corazón de tela y alma de semilla.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo -->
+    <section class="catalogo" id="catalogo">
+        <div class="container">
+            <div class="section-header">
+                <h2>Conoce a Nuestros Amigos</h2>
+                <p>Elige a tu nuevo compañero. Cada uno está listo para ser adoptado y traer una semilla de esperanza.</p>
+            </div>
+            <div class="products-grid">
+                <!-- Chupirul -->
+                <div class="product-card">
+                    <span class="product-badge">⭐ Edición Especial</span>
+                    <img src="https://cdn.oreateai.com/aiimage/upload/70bfdc148081a778201ff728/f251e7f20e883315c16d49bdf31aa324.jpg" alt="Chupirul" class="product-img">
+                    <div class="product-info">
+                        <h3>Chupirul</h3>
+                        <p class="desc">El líder aventurero de la manada. Valiente, curioso y siempre listo para explorar el mundo.</p>
+                        <div class="product-price">$250.00 MXN</div>
+                        <div class="product-seed">🌱 Incluye semilla de árbol</div>
+                    </div>
+                </div>
+                <!-- Berry -->
+                <div class="product-card">
+                    <img src="https://cdn.oreateai.com/aiimage/upload/70bfdc148081a778201ff728/50dc2c8088e816507b0b15f4e6150f9d.jpg" alt="Berry" class="product-img">
+                    <div class="product-info">
+                        <h3>Berry</h3>
+                        <p class="desc">Dulce, tierna y llena de color. Berry alegra cualquier espacio con su energía positiva.</p>
+                        <div class="product-price">$105.00 MXN</div>
+                        <div class="product-seed">🌱 Incluye semilla de flor</div>
+                    </div>
+                </div>
+                <!-- Banana -->
+                <div class="product-card">
+                    <img src="https://cdn.oreateai.com/aiimage/upload/70bfdc148081a778201ff728/4675d31399ee03702f0ebf640defcc3e.jpg" alt="Banana" class="product-img">
+                    <div class="product-info">
+                        <h3>Banana</h3>
+                        <p class="desc">El más divertido del grupo. Con su estilo único, Banana siempre saca una sonrisa.</p>
+                        <div class="product-price">$120.00 MXN</div>
+                        <div class="product-seed">🌱 Incluye semilla de planta</div>
+                    </div>
+                </div>
+                <!-- Tino -->
+                <div class="product-card">
+                    <img src="https://cdn.oreateai.com/aiimage/upload/70bfdc148081a778201ff728/6e1346f86efd0e0314b16077e9d92a6f.png" alt="Tino" class="product-img">
+                    <div class="product-info">
+                        <h3>Tino</h3>
+                        <p class="desc">Tranquilo, leal y un gran escucha. Tino es el amigo perfecto para momentos de calma.</p>
+                        <div class="product-price">$120.00 MXN</div>
+                        <div class="product-seed">🌱 Incluye semilla de árbol</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia -->
+    <section class="historia" id="historia">
+        <div class="container">
+            <div class="section-header">
+                <h2>La Historia de Bestfriend</h2>
+                <p>Cada peluche tiene una historia que contar. Descubre de dónde vienen y qué los hace especiales.</p>
+            </div>
+            <div class="timeline">
+                <div class="story-card">
+                    <h3>🧵 Chupirul</h3>
+                    <p>Nacido de una mochila vieja llena de aventuras, Chupirul fue el primero en despertar. Su coraje lo convirtió en el líder que guía a los demás peluches a encontrar un hogar. Cada puntada guarda el recuerdo de viajes pasados.</p>
+                </div>
+                <div class="story-card">
+                    <h3>🍓 Berry</h3>
+                    <p>Berry surgió de retazos de tela roja y rosa que alguien dejó olvidados. Con su dulzura natural, aprendió que los colores más vibrantes pueden nacer de lo que otros descartan. Es la encargada de llenar de alegría cada rincón.</p>
+                </div>
+                <div class="story-card">
+                    <h3>🍌 Banana</h3>
+                    <p>Banana nació de una camiseta amarilla que ya no servía. En lugar de desaparecer, decidió convertirse en el alma divertida del grupo. Su misión: demostrar que lo reciclado puede ser lo más cool del planeta.</p>
+                </div>
+                <div class="story-card">
+                    <h3>🐻 Tino</h3>
+                    <p>Tino fue el último en llegar, cosido con retazos de varias telas azules y grises. Su calma y lealtad lo hacen el confidente perfecto. En su pequeño libro de historia cuenta cómo encontró la paz cuidando una semilla.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="beneficios" id="beneficios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Beneficios para la Comunidad</h2>
+                <p>Comprar un Bestfriend es más que adoptar un peluche: es hacer la diferencia.</p>
+            </div>
+            <div class="benefit-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌍</div>
+                    <div class="benefit-text">
+                        <h4>Reduce el Impacto Ambiental</h4>
+                        <p>Al reutilizar telas, botones y algodón que pudieron haber terminado en el mar o los bosques, ayudamos a limpiar el planeta.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">👶</div>
+                    <div class="benefit-text">
+                        <h4>Compañía para Todas las Edades</h4>
+                        <p>Desde los más pequeños hasta los más grandes, cada persona puede encontrar un amigo con el que identificarse y sentirse acompañada.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌳</div>
+                    <div class="benefit-text">
+                        <h4>Sembrar Vida</h4>
+                        <p>La semilla que regalamos invita a cuidar el planeta y entender la importancia de la naturaleza desde pequeño.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💡</div>
+                    <div class="benefit-text">
+                        <h4>Conciencia Ecológica</h4>
+                        <p>Cada peluche enseña sobre reutilización, cuidado ambiental y cómo pequeñas acciones generan grandes cambios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="equipo" id="equipo">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestro Equipo</h2>
+                <p>El grupo 3°D detrás de cada puntada, cada historia y cada semilla.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h4>Adriana Esparza</h4>
+                    <span>Integrante</span>
+                </div>
+                <div class="team-member">
+                    <h4>Camila Gómez</h4>
+                    <span>Integrante</span>
+                </div>
+                <div class="team-member">
+                    <h4>José de Jesús Martínez</h4>
+                    <span>Integrante</span>
+                </div>
+                <div class="team-member">
+                    <h4>José Carlos Navarro</h4>
+                    <span>Integrante</span>
+                </div>
+                <div class="team-member">
+                    <h4>Andrés Zuvi</h4>
+                    <span>Integrante</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <h2>¿Listo para adoptar a tu Bestfriend?</h2>
+            <p>Escríbenos por Instagram y elige a tu nuevo compañero. Cada adopción es un paso más hacia un planeta más verde.</p>
+            <a href="https://instagram.com/plushie_bestie" target="_blank" class="social-link">
+                📸 Síguenos en @plushie_bestie
+            </a>
+            <div class="footer-copy">
+                © 2024 Moto Tank Bestfriend — Hecho con ❤️ y ♻️ por el grupo 3°D
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
